@@ -1,0 +1,34 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    RESULTADOS ANTES DE COMPETENCIA ENTRE GRUPOS
+{% endblock %}
+
+{% block content %}
+
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>Usted extrajo:</td><td>{{ player.extraction }}</td></tr>
+        <tr><td>Otros participantes extrajeron:</td><td></td></tr>
+        {% for p in player.get_others_in_group %}
+            <tr><td></td><td>{{ p.extraction }}</td></tr>
+        {% endfor %}
+
+        <tr><td>Extraction del Grupo:</td><td>{{ group.total_extraction }}</td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        <tr><td>Usted recibe en total:</td><td>{{ player.payoff }}</td></tr>
+        <tr><td>Identificacion de persona:</td><td>{{ player.id_in_group }}</td></tr>
+        <tr><td>Identificacion de grupo:</td><td>{{ group.id_in_subsession }}</td></tr>
+        <tr><td>Multiplicador de grupo 1:</td><td>{{ subsession.multi_uno }}</td></tr>
+        <tr><td>Multiplicador de grupo 2:</td><td>{{ subsession.multi_dos }}</td></tr>
+
+    </table>
+    <p></p>
+
+    {% next_button %}
+{% endblock %}
+
+

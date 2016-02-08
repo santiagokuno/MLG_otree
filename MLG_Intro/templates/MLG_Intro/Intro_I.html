@@ -1,0 +1,101 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    BIENVENIDO AL JUEGO DE COMPETENCIA ENTRE GRUPOS
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+    ul {
+        list-style-type:circle;
+        padding-left:20px;
+    }
+    h3.panel-sub-heading {
+        padding-bottom:10px;
+        padding-left:4px;
+    }
+
+    td, th{
+        text-align: center;
+    }
+
+    .rotate90 {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 60%;
+    }
+
+    .instructions {
+        position: relative;
+        text-shadow: 0 1px 0 #fff;
+        line-height: 1.5;
+        margin: 60px auto;
+        background-color: #f5f5dc;
+        background-image: linear-gradient(to bottom, #f5f5dc 0px, #fbfbeb 100%);
+        padding-top: 5px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    .instructions:before, .instructions:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+        transform: rotate(-3deg);
+    }
+
+    .instructions:after {
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+    }
+</style>
+
+<div class="instructions well well-lg" style="">
+
+    <h3 class="panel-sub-heading">
+        Instrucciones
+    </h3>
+
+    <p>
+        En este juego usted sera asignado a un grupo de cuatro jugadores. Existiran 5 grupos de participantes
+        sus pagos dependeran de su decision, de las decisiones individuales de sus compañeros de grupo. Y de la
+        manera como el agregado de las decisiones de su grupo se comparan con los otros grupos.
+    </p>
+
+    <p>
+        Usted debe decidir cuanto extrae de un bien de uso comun, sus decisiones de extraccion van de un minimo
+        de uno (1) a un maximo de ocho (8) unidades. Entre mas extraiga mayor beneficio para usted, pero entre
+        mas alta la extraccion total de su grupo el beneficio de cada unidad que extraiga sera menor.
+    </p>
+
+    <p>
+        Igualmente se ranquearan grupos de aquellos con mayor extraccion total (la suma de la extraccion de sus
+        miembros), a aquellos con menor extraccion. Su ingreso sera multiplicado por una variable que sera mayor
+        que uno si esta en un grupo de menor extraccion y menor que uno si esta en un grupo de menor extraccion.
+    </p>
+
+    <span class="latex">
+        1 + i = (1 + r)(1 + \pi)
+    </span>
+
+</div>
+
+    {% next_button %}
+
+{% endblock %}

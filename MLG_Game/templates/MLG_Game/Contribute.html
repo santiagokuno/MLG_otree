@@ -1,0 +1,14 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    EXTRACTION
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.extraction with label="How much will you extract?" %}
+
+    {% next_button %}
+
+{% endblock %}
