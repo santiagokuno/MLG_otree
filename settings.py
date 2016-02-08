@@ -318,10 +318,5 @@ SESSION_CONFIGS = [
 otree.settings.augment_settings(globals())
 
 #SESSION_CONFIGS = [
-#    {
-#        'name': 'my_trust',
-#        'display_name': "My Trust Game (Santiago Test)",
-#        'num_demo_participants': 2,
-#        'app_sequence': ['my_trust', 'payment_info'],
-#    },
+#
 #]
