@@ -54,6 +54,7 @@ class Results_2(Page):
         return {
             'multiplicador_uno': self.subsession.multi_uno,
             'multiplicador_dos': self.subsession.multi_dos,
+            'multiplicador_tres': self.subsession.multi_tres,
         }
 
 

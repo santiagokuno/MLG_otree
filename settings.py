@@ -307,13 +307,14 @@ SESSION_CONFIGS = [
     {
         'name': 'MLG_Intro',
         'display_name': "MLG_Test",
-        'num_demo_participants': 4,
+        'num_demo_participants': 6,
         'app_sequence': [
             'MLG_Game', 'payment_info'
         ],
     },
 ]
 
+SENTRY_DSN = 'http://7b6ef95ec90b4cddaf09ca55184f6ef1:e5fd539d433949fab29a6acc04fab93a@sentry.otree.org/13'
 
 otree.settings.augment_settings(globals())
 

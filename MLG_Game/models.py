@@ -31,13 +31,15 @@ class Subsession(BaseSubsession):
 
     multi_uno = models.DecimalField(max_digits=2, decimal_places=1)
     multi_dos = models.DecimalField(max_digits=2, decimal_places=1)
+    multi_tres = models.DecimalField(max_digits=2, decimal_places=1)
 
     def set_ranking(self):
         vector_group = [p.total_extraction for p in self.get_groups()]
         vector_ranked = ranking.rankdata(vector_group)
-        coefficients = [2.5 - (a-1)*(2.0) for a in vector_ranked]
+        coefficients = [2.0 - (a-1)*(1.0) for a in vector_ranked]
         self.multi_uno = coefficients[0]
         self.multi_dos = coefficients[1]
+        self.multi_tres = coefficients[2]
 
 class Group(BaseGroup):
 
@@ -58,6 +60,9 @@ class Group(BaseGroup):
         elif self.id_in_subsession == 2:
             for p in self.get_players():
                 p.payoff = p.payoff*self.subsession.multi_dos
+        elif self.id_in_subsession == 3:
+            for p in self.get_players():
+                p.payoff = p.payoff*self.subsession.multi_tres
 
 
 class Player(BasePlayer):
