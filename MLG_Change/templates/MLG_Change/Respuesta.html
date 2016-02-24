@@ -1,0 +1,49 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Su respuesta <span  class="text-info">{{ player.question }}</span> fue {% if player.question_correct %}<span class="text-success">correcta</span>
+        {% else %}<span class="text-danger">incorrecta.</span>{% endif %}
+    </p>
+    <p>
+        Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
+        10 unidades en el fondo común. Por lo tanto sus ganancias parciales son <strong>6.5</strong>.
+    </p>
+
+    <p>
+        Los otros dos grupos dejaron 5 y 7 unidades en el fondo común. ¿Cuales son sus ganancias totales de la ronda?
+    </p>
+
+    <p>
+        <strong>Solución: 7.2</strong>
+    </p>
+
+    <p>
+        <strong>Explicación:</strong> Como su grupo es el primero el multiplicador es 1.10, Ganancias totales = 1.10 * 6.5 = 7.2
+    </p>
+
+
+<div class="box effect7">
+    <p>
+        i. Si su grupo es el <strong>primer</strong> grupo (el que MÁS recursos dejó en el fondo común): <strong>Multiplicador = 1.10</strong>
+    </p>
+
+    <p>
+        ii. Si su grupo es el <strong>segundo</strong> grupo: <strong>Multiplicador = 1.00</strong>
+    </p>
+
+    <p>
+        iii. Si su grupo es el <strong>tercer</strong> grupo (el que MENOS recursos dejó en el fondo común): <strong>Multiplicador = 0.90</strong>
+    </p>
+</div>
+
+    {% next_button %}
+{% endblock %}
+
+

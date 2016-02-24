@@ -1,0 +1,60 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Respuesta a pregunta de comprensión
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Su respuesta <span  class="text-info">{{ player.question }}</span> fue {% if player.question_correct %}<span class="text-success">correcta</span>
+        {% else %}<span class="text-danger">incorrecta.</span>{% endif %}
+    </p>
+    <p>
+        Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
+        10 unidades en el fondo común. ¿Cuales son sus ganancias?
+    </p>
+
+    <p>
+        <strong>Solución: 6.5</strong>
+    </p>
+
+    <p>
+        <strong>Explicación:</strong> 3 puntos +  (1.4 * 10 puntos)/4 = 3 puntos + 14 puntos / 4 = 3 puntos + 3.5 puntos = 6.5 puntos
+    </p>
+
+<div class="box effect7">
+
+    <p>
+        EJEMPLO 1:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 1 unidad del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 16 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias serían: 1 punto + (1.4 * 16 puntos)/4 = 1 punto + (22.4 puntos)/4 = 1 punto + 5.6 puntos  = 6.6 puntos.
+    </p>
+
+    <p>
+        EJEMPLO 2:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 4 unidades del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 4 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias serían: 4 punto + (1.4 * 4 puntos)/4 = 4 punto + (5.6 puntos)/4 = 4 punto + 1.4 puntos  = 5.4 puntos.
+    </p>
+
+</div>
+
+    {% next_button %}
+
+{% endblock %}
+

@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    BIENVENIDO
+   Pregunta de comprensión
 {% endblock %}
 
 {% block content %}
@@ -66,27 +66,39 @@
     }
 </style>
 
-<div class="instructions well well-lg" style="">
+    <p>
+        Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
+        10 unidades en el fondo común.
+    </p>
 
-     <p>
-        Agradecemos su asistencia. Por su presencia el día de hoy ha ganado $5.000 pesos que serán sumados a las
-        ganancias finales que obtenga en el juego.
+    {% formfield player.question with label="¿Cuales son sus ganancias?" %}
+
+<div class="box effect7">
+
+    <p>
+        EJEMPLO 1:
     </p>
 
     <p>
-        Este juego de 12 personas, consiste de tres (3) equipos de cuatro (4) jugadores cada uno. Usted será asignado
-        de manera aleatoria a un equipo, y jugará un juego de 10 rondas. Posteriormente se volverán a asignar grupos
-        y jugará con un nuevo grupo otras 10 rondas del mismo juego pero con una nueva regla.
+        Suponga que usted decidió extraer 1 unidad del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 16 unidades en el fondo común.
     </p>
 
     <p>
-        En ningún momento sabrá quienes son sus compañeros de equipo.
+        Sus ganancias serían: 1 punto + (1.4 * 16 puntos)/4 = 1 punto + (22.4 puntos)/4 = 1 punto + 5.6 puntos  = 6.6 puntos.
     </p>
 
     <p>
-        Al final se seleccionarán al azar dos rondas: una ronda de cada etapa, y se pagarán los resultados de cada una de
-        ellas. Cada punto que obtenga durante el juego vale $500 pesos. Sus ganancias serán la suma de sus resultados de
-        ambas rondas + $5.000 pesos iniciales que ganó por su asistencia puntual.
+        EJEMPLO 2:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 4 unidades del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 4 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias serían: 4 punto + (1.4 * 4 puntos)/4 = 4 punto + (5.6 puntos)/4 = 4 punto + 1.4 puntos  = 5.4 puntos.
     </p>
 
 </div>
@@ -94,3 +106,8 @@
     {% next_button %}
 
 {% endblock %}
+
+{% block form %}
+
+{% endblock %}
+

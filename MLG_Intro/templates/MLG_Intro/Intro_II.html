@@ -2,38 +2,120 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Thank you
+   INSTRUCCIONES DEL JUEGO
 {% endblock %}
 
 {% block content %}
 
 
+<style type="text/css">
+    ul {
+        list-style-type:circle;
+        padding-left:20px;
+    }
+    h3.panel-sub-heading {
+        padding-bottom:10px;
+        padding-left:4px;
+    }
+
+    td, th{
+        text-align: center;
+    }
+
+    .rotate90 {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 60%;
+    }
+
+    .instructions {
+        position: relative;
+        text-shadow: 0 1px 0 #fff;
+        line-height: 1.5;
+        margin: 60px auto;
+        background-color: #f5f5dc;
+        background-image: linear-gradient(to bottom, #f5f5dc 0px, #fbfbeb 100%);
+        padding-top: 5px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    .instructions:before, .instructions:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+        transform: rotate(-3deg);
+    }
+
+    .instructions:after {
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+    }
+</style>
+
+<div class="instructions well well-lg" style="">
+
     <p>
-        <em>Note: As this is a sample game, the points you earned will not be converted to a monetary value as would normally be the case.</em>
+        Usted será asignado de manera aleatoria a uno de los cuatro grupos. Usted jugará SOLAMENTE con sus tres compañeros
+        de grupos.
     </p>
 
     <p>
-        <em>Below are examples of messages that could be displayed for different experimental settings.</em>
+        Usted tendrá que tomar una decisión de extraer entre una (1) y cinco (5) unidades de un Fondo Común compartido por
+        todos los miembros de su grupo, en el cual hay un total de veinte (20) unidades. Las unidades del Fondo Común se
+        multiplicarán por 1.4 y se dividirán equitativamente entre los cuatro jugadores del grupo (la cuarta parte para cada uno).
+        A ello se le sumara el total de unidades que haya extraído inicialmente.
     </p>
 
-    <div class="panel panel-default" style="margin-bottom:10px">
-        <div class="panel-body">
-            <p><strong>Laboratory:</strong></p>
-            <p>Please remain seated until your number is called. Then take your number card, and proceed to the cashier.</p>
-            <p><em>Note: For the cashier in the laboratory, oTree can print a list of payments for all participants as a PDF.
-        </div>
-    </div>
+    <p>
+        <strong>Su pago será: las unidades que hay extraído MÁS la cuarta parte del fondo común luego de multiplicarlo por 1.4.</strong>
+    </p>
 
-    <div class="panel panel-default" style="margin-bottom:10px">
-        <div class="panel-body">
-            <p><strong>Classroom:</strong></p>
-            <p><em>If you want to keep track of how students did, the easiest thing is to assign the starting links to students by name.
-                It is even possible to give each student a single permanent link for a whole semester; so no need to waste time in each
-                lecture with handing out new links and keeping track of which student uses which link. Alternatively, you may just give
-                students anonymous links or secret nicknames.</em>
-            </p>
-        </div>
-    </div>
+</div>
+
+<div class="box effect7">
+
+    <p>
+        EJEMPLO 1:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 1 unidad del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 16 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias serían: 1 punto + (1.4 * 16 puntos)/4 = 1 punto + (22.4 puntos)/4 = 1 punto + 5.6 puntos  = 6.6 puntos.
+    </p>
+
+    <p>
+        EJEMPLO 2:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 4 unidades del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 4 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias serían: 4 punto + (1.4 * 4 puntos)/4 = 4 punto + (5.6 puntos)/4 = 4 punto + 1.4 puntos  = 5.4 puntos.
+    </p>
+
+</div>
 
     {% next_button %}
 

@@ -1,0 +1,32 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    DECISIÓN RONDA {{ subsession.round_number }} DE 10 (1A ETAPA)
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.extraction with label="¿Cuánto desea extraer del Fondo Común? (1 a 5)" %}
+
+<div class="box effect7">
+
+    <p>
+        Sus tres compañeros de grupos son siempre los mismos durante las 10 rondas de esta primera etapa.
+    </p>
+
+    <p>
+        Su pago será: las unidades que extraíga en este punto MÁS la cuarta parte del fondo común luego de multiplicarlo por 1.4.
+    </p>
+
+    <p>
+        Pago = (Unidades extraidas) + 1.4 * (Fondo Común) / 4.
+    </p>
+
+
+</div>
+
+
+    {% next_button %}
+
+{% endblock %}

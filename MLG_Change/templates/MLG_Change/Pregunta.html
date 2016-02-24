@@ -2,28 +2,23 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    DECISIÓN RONDA {{ subsession.round_number }} DE 10 (II ETAPA)
+    Page title
 {% endblock %}
 
 {% block content %}
 
-    {% formfield player.extraction with label="¿Cuánto desea extraer?" %}
+    <p>
+        Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
+        10 unidades en el fondo común. Por lo tanto sus ganancias parciales son <strong>6.5</strong>.
+    </p>
+
+    <p>
+        Los otros dos grupos dejaron 5 y 7 unidades en el fondo común.
+    </p>
+
+    {% formfield player.question with label="¿Cuales son sus ganancias totales de la ronda?" %}
 
 <div class="box effect7">
-
-    <p>
-        Sus tres compañeros de grupo son diferentes de los que tenías en la primera etapa.
-    </p>
-
-    <p>
-        Su pago será su pago parcial (el cual es calculado como en la etapa anterior) multiplicador por el multiplicador de acuerdo
-        al RANKING de su grupo.
-    </p>
-
-    <p>
-        Pago Total = Multiplicador * Pago Parcial.
-    </p>
-
     <p>
         i. Si su grupo es el <strong>primer</strong> grupo (el que MÁS recursos dejó en el fondo común): <strong>Multiplicador = 1.10</strong>
     </p>
@@ -38,5 +33,6 @@
 </div>
 
     {% next_button %}
-
 {% endblock %}
+
+

@@ -8,23 +8,20 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class Intro_I(Page):
+class Cambio(Page):
     pass
 
-class Intro_II(Page):
-    pass
-
-class Intro_III(Page):
+class Pregunta(Page):
 
     form_model = models.Player
     form_fields = ['question']
 
-class Intro_IV(Page):
+class Respuesta(Page):
     pass
 
+
 page_sequence = [
-    Intro_I,
-    Intro_II,
-    Intro_III,
-    Intro_IV
+    Cambio,
+    Pregunta,
+    Respuesta
 ]

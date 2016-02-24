@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    RESULTADOS RONDA {{ subsession.round_number }} DE 10 (2A ETAPA)
+    RESULTADOS RONDA {{ subsession.round_number }} DE 10 (1A ETAPA)
 {% endblock %}
 
 {% block content %}
@@ -13,11 +13,8 @@
     <tr><td>Usted extrajo:</td><td>{{ player.extraction }}</td></tr>
     {# <tr><td>Extraction de su Grupo:</td><td>{{ group.total_extraction }}</td></tr> #}
     <tr><td>En el Fondo Común de su grupo quedaron:</td><td>{{ Fondo_Comun }}</td></tr>
-    <tr><td>Sus ganancias parciales fueron:</td><td>{{ player.partial_pay }}</td></tr>
-
     <tr><td colspan="2"><hr/></td></tr>
-
-    <tr><td><strong>SU PAGO TOTAL ES DE:</strong></td><td><strong>{{ player.payoff }}</strong></td></tr>
+    <tr><td><strong>SU PAGO ES DE:</strong></td><td><strong>{{ player.payoff }}</strong></td></tr>
 </table>
 
 </div>
@@ -30,12 +27,14 @@
     <tr><td>la mínima ganancia fue:</td><td>{{ subsession.min_pay }}</td></tr>
 
     <tr><td colspan="2"><hr/></td></tr>
+
     <tr><td>El ranking de su grupo fue:</td><td>{{ group.g_ranking }} de 3.</td></tr>
     <tr><td>El valor más alto de los fondos comunes fue:</td><td>{{ subsession.max_fund }}</td></tr>
     <tr><td>El valor más bajo de los fondos comunes fue:</td><td>{{ subsession.min_fund }}</td></tr>
 </table>
 
 </div>
+
 
     {% comment %}
     <tr><td>Su jugador es:</td><td>{{ participante }}</td></tr>
@@ -62,10 +61,10 @@
     <tr><td>Identificacion de persona:</td><td>{{ player.id_in_group }}</td></tr>
     <tr><td>Identificacion de grupo:</td><td>{{ group.id_in_subsession }}</td></tr>
 
-    <tr><td>Multiplicador de grupo 1:</td><td>{{ multiplicador_uno }}</td></tr>
-    <tr><td>Multiplicador de grupo 2:</td><td>{{ multiplicador_dos }}</td></tr>
-    <tr><td>Multiplicador de grupo 3:</td><td>{{ multiplicador_tres }}</td></tr>
     {% endcomment %}
+
+</table>
+
 
     {% next_button %}
 {% endblock %}

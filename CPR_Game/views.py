@@ -8,7 +8,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class Contribute(Page):
+class Extraction(Page):
 
     """Player: Choose how much to extract"""
 
@@ -22,7 +22,7 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.group.set_payoffs()
 
-    body_text = "Calculating payoffs by group."
+    body_text = "Esperando a la decisión de sus compañeros."
 
 class Results_2WaitPage(WaitPage):
 
@@ -31,14 +31,14 @@ class Results_2WaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.subsession.set_ranking_g()
 
-    body_text = "Dos (2)."
+    body_text = "Esperando a la decisión de sus compañeros."
 
 class Results_3WaitPage(WaitPage):
 
     def after_all_players_arrive(self):
         self.group.overall_payoffs()
 
-    body_text = "Tres (3)"
+    body_text = "Calculando los pagos del grupo."
 
 class Results_5WaitPage(WaitPage):
 
@@ -47,16 +47,16 @@ class Results_5WaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.subsession.set_ranking_p()
 
-    body_text = "Cinco (5)."
+    body_text = "Calculando datos adicionales."
 
 class Results_6WaitPage(WaitPage):
 
     wait_for_all_groups = True
 
-    body_text = "Seis (6)"
+    body_text = "Calculando datos adicionales."
 
-class Results_2(Page):
-    #pass
+class Results(Page):
+
     def vars_for_template(self):
         self.player.the_ranking()
         return{
@@ -66,9 +66,6 @@ class Results_2(Page):
             'player_4': self.subsession.rank_p_4,
             'player_5': self.subsession.rank_p_5,
             'player_6': self.subsession.rank_p_6,
-            'multiplicador_uno': self.subsession.multi_uno,
-            'multiplicador_dos': self.subsession.multi_dos,
-            'multiplicador_tres': self.subsession.multi_tres,
             'participante': self.player.participant,
             'partici_2': self.player.auxiliar,
             'Fondo_Comun': Constants.endowment*Constants.players_per_group - self.group.total_extraction
@@ -76,11 +73,12 @@ class Results_2(Page):
 
 
 page_sequence = [
-    Contribute,
+    Extraction,
     ResultsWaitPage,
     Results_2WaitPage,
     Results_3WaitPage,
     Results_5WaitPage,
     Results_6WaitPage,
-    Results_2
+    Results
 ]
+

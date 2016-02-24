@@ -12,37 +12,28 @@ from otree.constants import BaseConstants
 from otree.models import BaseSubsession, BaseGroup, BasePlayer
 # </standard imports>
 
-author = 'Santiago GC'
+author = 'Your name here'
 
 doc = """
-The Introduction to our game
+Your app description
 """
 
+
 class Constants(BaseConstants):
-    name_in_url = 'MLG_Intro'
+    name_in_url = 'MLG_payment_info'
     players_per_group = None
     num_rounds = 1
 
-    question_correct = '6.5'
 
 class Subsession(BaseSubsession):
-    pass
+
+    def before_session_starts(self):
+        for p in self.get_players():
+            p.payoff = 0
 
 class Group(BaseGroup):
     pass
 
+
 class Player(BasePlayer):
-
-    question = models.CharField(
-        choices=[
-            ('1.0', '1.0'),
-            ('2.0', '2.0'),
-            ('6.5', '6.5'),
-            ('9.5', '9.5'),
-            ('10.0', '10.0'),
-            ('12.0', '12.0'),
-        ]
-    )
-
-    def question_correct(self):
-        return self.question == Constants.question_correct
+    pass

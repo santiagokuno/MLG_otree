@@ -1,0 +1,171 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    CAMBIO DE REGLAS
+{% endblock %}
+
+{% block content %}
+
+
+<style type="text/css">
+    ul {
+        list-style-type:circle;
+        padding-left:20px;
+    }
+    h3.panel-sub-heading {
+        padding-bottom:10px;
+        padding-left:4px;
+    }
+
+    td, th{
+        text-align: center;
+    }
+
+    .rotate90 {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 60%;
+    }
+
+    .instructions {
+        position: relative;
+        text-shadow: 0 1px 0 #fff;
+        line-height: 1.5;
+        margin: 60px auto;
+        background-color: #f5f5dc;
+        background-image: linear-gradient(to bottom, #f5f5dc 0px, #fbfbeb 100%);
+        padding-top: 5px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    .instructions:before, .instructions:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+        transform: rotate(-3deg);
+    }
+
+    .instructions:after {
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+    }
+</style>
+
+<div class="instructions well well-lg" style="">
+
+    <p>
+        A partir de este momento se introduce una nueva regla. Usted seguirá tomando la misma decisión de extracción
+        y sus ganancias parciales serán producto de lo que usted extraiga y lo que otros miembros de su grupo dejen en
+        el fondo común.
+    </p>
+
+    <p>
+        <strong>Hasta aquí es idéntico a las 10 rondas que acaba de jugar.</strong>
+    </p>
+
+    <p>
+        Adicionalmente, sus ganancias parciales (gan_p) serán multiplicadas por un MULTIPLICADOR de acuerdo al RANKING
+        de su grupo con relación a los otros dos (2) grupos. De esta manera se obtendrán sus ganancia totales de la ronda.
+        El multiplicador para el primer grupo es 1.10 para el segundo 1.00, y para el tercer y último es 0.90.
+    </p>
+
+</div>
+
+<div class="instructions well well-lg" style="">
+
+    <p>
+        i. Si su grupo es el <strong>primer</strong> grupo (el que MÁS recursos dejó en el fondo común): Ganancias Ronda = 1.10 * ganancia parcial
+    </p>
+
+    <p>
+        ii. Si su grupo es el <strong>segundo</strong> grupo: Ganancias Ronda = 1.00 * ganancia parcial
+    </p>
+
+    <p>
+        iii. Si su grupo es el <strong>tercer</strong> grupo (el que MENOS recursos dejó en el fondo común): Ganancias Ronda = 0.90 * ganancia parcial
+    </p>
+
+    <p>
+        ______________________________________________________________________________________________
+    </p>
+
+    <p>
+        En caso de presentar un <strong>empate</strong>, el multiplicador para los empatados será el promedio de los multiplicadores.
+    </p>
+
+    <p>
+        -      i. Si hay dos (2) grupos empatados en el primer lugar entonces el multiplicador es (1.10+1.00) / 2 = 1.05
+    </p>
+
+    <p>
+        -      ii. Si hay dos (2) grupos empatados en el tercer lugar entonces el multiplicador es (1.00+0.90) / 2 = 0.95
+    </p>
+
+    <p>
+        -      iii. Si hay tres (3) grupos empatan entonces el multiplicador es (1.10+1.00+0.90) / 3 = 1.00
+    </p>
+
+</div>
+
+<div class="box effect7">
+
+    <p>
+        EJEMPLO 1:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 3 unidades del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 8 unidades en el fondo común. Los demás grupos dejaron 2, 5 y 7 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias parciales serían: 3 puntos + (1.4 * 8 puntos) / 4  = 3 puntos + (11.2 puntos) / 4  = 3 puntos + 2.8 puntos = 5.8 puntos.
+    </p>
+
+    <p>
+        Como su grupo es el primero (dejó más unidades en el fondo común), <strong>sus ganancias totales serían 1.10 * 5.8 = 6.4</strong>
+    </p>
+
+    <p>
+        ______________________________________________________________________________________________
+    </p>
+
+
+    <p>
+        EJEMPLO 2:
+    </p>
+
+    <p>
+        Suponga que usted decidió extraer 3 unidades del fondo común, y que luego que todos decidieran cuánto extraer
+        quedan 8 unidades en el fondo común. Los demás grupos dejaron 12, 10 y 15 unidades en el fondo común.
+    </p>
+
+    <p>
+        Sus ganancias parciales serían: 3 puntos + (1.4 * 8 puntos) / 4  = 3 puntos + (11.2 puntos) / 4  = 3 puntos + 2.8 puntos = 5.8 puntos.
+    </p>
+
+    <p>
+        Como su grupos es el último (dejó menos unidades en el fondo común), <strong>sus ganancias totales serían 0.90 * 5.8 = 5.2 puntos</strong>
+    </p>
+
+</div>
+
+    {% next_button %}
+
+{% endblock %}
