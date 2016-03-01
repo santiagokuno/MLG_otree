@@ -2,25 +2,31 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    DECISIÓN RONDA {{ subsession.round_number }} DE 10 (1A ETAPA)
+    DECISIÓN DE EXTRACCIÓN. RONDA {{ subsession.round_number }} DE 10 (BLOQUE 1)
 {% endblock %}
 
 {% block content %}
 
-    {% formfield player.extraction with label="¿Cuánto desea extraer del Fondo Común? (1 a 5)" %}
+    {% formfield player.extraction with label="¿Cuánto unidades deseo extraer del recurso compartido?" %}
 
 <div class="box effect7">
 
     <p>
-        Sus tres compañeros de grupos son siempre los mismos durante las 10 rondas de esta primera etapa.
+        INSTRUCCIONES
     </p>
 
     <p>
-        Su pago será: las unidades que extraíga en este punto MÁS la cuarta parte del fondo común luego de multiplicarlo por 1.4.
+        Usted está en un grupo con otros tres (3) participantes. El grupo será el mismo durante todo el bloque. Usted tiene
+        derecho a extraer entre cero (0) y cinco (5) unidades del recurso compartido.
     </p>
 
     <p>
-        Pago = (Unidades extraidas) + 1.4 * (Fondo Común) / 4.
+        Cada unidad que usted decida extraer generará un beneficio de 1 punto. Este beneficio es solo para usted.
+        Cada unidad que no sea extraída generará un beneficio de 0.35 puntos para cada miembro del grupo.
+    </p>
+
+    <p>
+        Su pago será = [Unidades extraidas] + 0.35 * [Unidades remanentes en el recurso compartido].
     </p>
 
 

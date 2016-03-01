@@ -22,7 +22,7 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.group.set_payoffs()
 
-    body_text = "Calculating payoffs by group."
+    body_text = "Esperando la decisión de sus compañeros"
 
 class Results_2WaitPage(WaitPage):
 
@@ -31,14 +31,14 @@ class Results_2WaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.subsession.set_ranking_g()
 
-    body_text = "Dos (2)."
+    body_text = "Esperando la decisión de sus compañeros"
 
 class Results_3WaitPage(WaitPage):
 
     def after_all_players_arrive(self):
         self.group.overall_payoffs()
 
-    body_text = "Tres (3)"
+    body_text = "Calculando los pagos parciales de su grupo"
 
 class Results_5WaitPage(WaitPage):
 
@@ -47,13 +47,13 @@ class Results_5WaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.subsession.set_ranking_p()
 
-    body_text = "Cinco (5)."
+    body_text = "Calculando rankings de los grupos y los pagos finales"
 
 class Results_6WaitPage(WaitPage):
 
     wait_for_all_groups = True
 
-    body_text = "Seis (6)"
+    body_text = "Calculando rankings de los grupos y los pagos finales"
 
 class Results_2(Page):
     #pass
@@ -71,7 +71,10 @@ class Results_2(Page):
             'multiplicador_tres': self.subsession.multi_tres,
             'participante': self.player.participant,
             'partici_2': self.player.auxiliar,
-            'Fondo_Comun': Constants.endowment*Constants.players_per_group - self.group.total_extraction
+            'Fondo_Comun': 5*Constants.players_per_group - self.group.total_extraction,
+            'Ganancias_grupo' : self.group.total_payment,
+            'Ganancias_parciales' : self.player.partial_pay,
+            'Pago_final' : self.player.payoff,
             }
 
 

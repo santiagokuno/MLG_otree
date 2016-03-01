@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Page title
+    RESPUESTA A PREGUNTA DE COMPRENSIÓN
 {% endblock %}
 
 {% block content %}
@@ -11,36 +11,53 @@
         Su respuesta <span  class="text-info">{{ player.question }}</span> fue {% if player.question_correct %}<span class="text-success">correcta</span>
         {% else %}<span class="text-danger">incorrecta.</span>{% endif %}
     </p>
+
     <p>
         Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
-        10 unidades en el fondo común. Por lo tanto sus ganancias parciales son <strong>6.5</strong>.
+        10 unidades en el fondo común.
     </p>
 
     <p>
-        Los otros dos grupos dejaron 5 y 7 unidades en el fondo común. ¿Cuales son sus ganancias totales de la ronda?
+        La suma de sus ganancias parciales y las de los otros tres miembros de su grupo es de 24.0
+        La suma de las ganancias parciales de los otros dos grupos es de 23.2 y 22.0
     </p>
 
     <p>
-        <strong>Solución: 7.2</strong>
+        ¿Cuales son sus ganancias totales de la ronda?
     </p>
 
     <p>
-        <strong>Explicación:</strong> Como su grupo es el primero el multiplicador es 1.10, Ganancias totales = 1.10 * 6.5 = 7.2
+        <strong>Solución: Las ganancias parciales son 6.5 y las ganancias finales 7.2</strong>
+    </p>
+
+    <p>
+        <strong>Explicación:</strong> Sus ganancias parciales son 3 + 0.35 * 10 = 6.5 puntos. Como su grupo tiene las mayores
+        ganancias de todos los grupos, el ranking es 1 y el multiplicador 1.10. Por lo tanto sus Ganancias totales = 1.10 * 6.5 = 7.2
     </p>
 
 
 <div class="box effect7">
-    <p>
-        i. Si su grupo es el <strong>primer</strong> grupo (el que MÁS recursos dejó en el fondo común): <strong>Multiplicador = 1.10</strong>
+     <p>
+        Cada grupo tiene a su dispoción 20 unidades de un recurso compartido en cada ronda.
+        Cada unidad que usted decida extraer le generará un beneficio de un (1) punto. Este beneficio es sólo para usted.
+        Cada unidad que no sea extraía le generará un beneficio de 0.35 puntos para cada miembro de su grupo.
+        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco unidades del recurso por ronda.
     </p>
 
     <p>
-        ii. Si su grupo es el <strong>segundo</strong> grupo: <strong>Multiplicador = 1.00</strong>
+        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 * [Unidades remanentes en el recurso compartido].
+        Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal.
+        Para calcular sus ganancias finales (de la ronda), sus ganancias parciales serán ponderadas con un MULTIPLICADOR
+        que depende del ranking de su grupo.
     </p>
 
-    <p>
-        iii. Si su grupo es el <strong>tercer</strong> grupo (el que MENOS recursos dejó en el fondo común): <strong>Multiplicador = 0.90</strong>
-    </p>
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+    <tr><td><strong>Ranking</strong></td><td><strong>Multiplicador</strong></td></tr>
+    <tr><td>1 (mejor):</td><td>1.10 (10% más de ganancia)</td></tr>
+    <tr><td>2:</td><td>1.00 (ganancias no se afectan)</td></tr>
+    <tr><td>3 (peor):</td><td>0.90 (10% menos de ganancias)</td></tr>
+    </table>
+
 </div>
 
     {% next_button %}

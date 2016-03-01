@@ -41,16 +41,16 @@ class Player(BasePlayer):
                                         initial=None)
     q_gender = models.CharField(initial=None,
                                 choices=['Hombre', 'Mujer'],
-                                verbose_name='¿Cual es su género?',
+                                verbose_name='¿Cuál es su género?',
                                 widget=widgets.RadioSelect())
-    q_estrato = models.PositiveIntegerField(verbose_name='¿En cuál estrato esta ubicada su casa?',
+    q_estrato = models.PositiveIntegerField(verbose_name='¿En cuál estrato está ubicada su casa?',
                                         choices=range(1, 7),
                                         initial=None)
     q_game_part = models.CharField(initial=None,
                                 choices=['SI', 'NO'],
-                                verbose_name='¿Ha participado en juegos similares a este?',
+                                verbose_name='¿Ha participado en actividades similares a ésta (experimentos económicos)?',
                                 widget=widgets.RadioSelect())
-    q_part_time = models.PositiveIntegerField(verbose_name='¿En cuántos juegos ha participado? (escriba "0" si en ninguno)')
+    q_part_time = models.PositiveIntegerField(verbose_name='¿En cuántas actividades como ésta ha participado? (escriba "0" si en ninguno)')
     q_graduated = models.CharField(initial=None,
                                 choices=['SI', 'NO'],
                                 verbose_name='¿Está usted graduado de pregrado?',

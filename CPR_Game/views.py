@@ -38,7 +38,7 @@ class Results_3WaitPage(WaitPage):
     def after_all_players_arrive(self):
         self.group.overall_payoffs()
 
-    body_text = "Calculando los pagos del grupo."
+    body_text = "Calculando los pagos de su grupo."
 
 class Results_5WaitPage(WaitPage):
 
@@ -68,7 +68,7 @@ class Results(Page):
             'player_6': self.subsession.rank_p_6,
             'participante': self.player.participant,
             'partici_2': self.player.auxiliar,
-            'Fondo_Comun': Constants.endowment*Constants.players_per_group - self.group.total_extraction
+            'Fondo_Comun': 5*Constants.players_per_group - self.group.total_extraction
             }
 
 

@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    RESULTADOS RONDA {{ subsession.round_number }} DE 10 (2A ETAPA)
+    RESULTADOS RONDA {{ subsession.round_number }} DE 10 (BLOQUE 2)
 {% endblock %}
 
 {% block content %}
@@ -10,29 +10,27 @@
 <div class="box effect7">
     <p></p>
 <table class="table-condensed" style="width:500px; margin-top:20px;">
-    <tr><td>Usted extrajo:</td><td>{{ player.extraction }}</td></tr>
-    {# <tr><td>Extraction de su Grupo:</td><td>{{ group.total_extraction }}</td></tr> #}
-    <tr><td>En el Fondo Común de su grupo quedaron:</td><td>{{ Fondo_Comun }}</td></tr>
-    <tr><td>Sus ganancias parciales fueron:</td><td>{{ player.partial_pay }}</td></tr>
+    <tr><td>Usted extrajo:</td><td>{{ player.extraction }} Unidades. </td></tr>
+    <tr><td>El remanente de recurso compartido en su grupo fue:</td><td>{{ Fondo_Comun }} Unidades.</td></tr>
+    <tr><td>Las ganancias totales de su grupo fueron:</td><td>{{ Ganancias_grupo }}.</td></tr>
 
-    <tr><td colspan="2"><hr/></td></tr>
+    <tr><td>Sus ganancias parciales fueron:</td><td>{{ Ganancias_parciales }}. </td></tr>
 
-    <tr><td><strong>SU PAGO TOTAL ES DE:</strong></td><td><strong>{{ player.payoff }}</strong></td></tr>
+    <tr><td><strong>SU PAGO FINAL DE LA RONDA ES DE:</strong></td><td><strong>{{ Pago_final }}. </strong></td></tr>
 </table>
 
 </div>
 
 <div class="box effect7">
-    <p> De mayor a menor, siendo el mayor valor el primer lugar en ambos casos, tenemos que:</p>
+
 <table class="table-condensed" style="width:500px; margin-top:20px;">
     <tr><td>Su ranking entre todos los competidores fue:</td><td>{{ player.ranking }} de 12.</td></tr>
-    <tr><td>La ganancia máxima fue:</td><td>{{ subsession.max_pay }}</td></tr>
-    <tr><td>la mínima ganancia fue:</td><td>{{ subsession.min_pay }}</td></tr>
-
-    <tr><td colspan="2"><hr/></td></tr>
+    {# <tr><td>La ganancia máxima por competidor fue:</td><td>{{ subsession.max_pay }}</td></tr> #}
+    {# <tr><td>la mínima ganancia por grupo fue:</td><td>{{ subsession.min_pay }}</td></tr> #}
+    {# <tr><td colspan="2"><hr/></td></tr> #}
     <tr><td>El ranking de su grupo fue:</td><td>{{ group.g_ranking }} de 3.</td></tr>
-    <tr><td>El valor más alto de los fondos comunes fue:</td><td>{{ subsession.max_fund }}</td></tr>
-    <tr><td>El valor más bajo de los fondos comunes fue:</td><td>{{ subsession.min_fund }}</td></tr>
+    {# <tr><td>El valor más alto de los fondos comunes fue:</td><td>{{ subsession.max_fund }}</td></tr> #}
+    {# <tr><td>El valor más bajo de los fondos comunes fue:</td><td>{{ subsession.min_fund }}</td></tr> #}
 </table>
 
 </div>

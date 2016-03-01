@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    CAMBIO DE REGLAS
+    INSTRUCCIONES DE JUEGO: BLOQUE 2
 {% endblock %}
 
 {% block content %}
@@ -70,35 +70,47 @@
 <div class="instructions well well-lg" style="">
 
     <p>
-        A partir de este momento se introduce una nueva regla. Usted seguirá tomando la misma decisión de extracción
-        y sus ganancias parciales serán producto de lo que usted extraiga y lo que otros miembros de su grupo dejen en
-        el fondo común.
+        Para este nuevo bloque de 10 rondas usted será asignado a un nuevo grupo de cuatro (4) jugadores.
     </p>
 
     <p>
-        <strong>Hasta aquí es idéntico a las 10 rondas que acaba de jugar.</strong>
+        Las reglas de extracción son idénticas a las del <strong>BLOQUE 1.</strong>
+        Cada grupo tiene a su dispoción 20 unidades de un recurso compartido en cada ronda.
+        Cada unidad que usted decida extraer le generará un beneficio de un (1) punto. Este beneficio es sólo para usted.
+        Cada unidad que no sea extraía por ningún miembro del grupo generará un beneficio de 1.4 puntos a dividir en partes
+        iguales entre todos. Esto es, un beneficio de 0.35 puntos para cada participante.
+        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco unidades del recurso por ronda.
     </p>
 
     <p>
-        Adicionalmente, sus ganancias parciales (gan_p) serán multiplicadas por un MULTIPLICADOR de acuerdo al RANKING
-        de su grupo con relación a los otros dos (2) grupos. De esta manera se obtendrán sus ganancia totales de la ronda.
-        El multiplicador para el primer grupo es 1.10 para el segundo 1.00, y para el tercer y último es 0.90.
+        Para este bloque se cambia la regla de pago.
+        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 * [Unidades remanentes en el recurso compartido].
+        Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal.
+        Para calcular sus ganancias finales (de la ronda), sus ganancias parciales serán ponderadas con un MULTIPLICADOR
+        que depende del ranking de su grupo.
     </p>
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+    <tr><td><strong>Ranking</strong></td><td><strong>Multiplicador</strong></td></tr>
+    <tr><td>1 (mejor):</td><td>1.10 (10% más de ganancia)</td></tr>
+    <tr><td>2:</td><td>1.00 (ganancias no se afectan)</td></tr>
+    <tr><td>3 (peor):</td><td>0.90 (10% menos de ganancias)</td></tr>
+    </table>
 
 </div>
 
 <div class="instructions well well-lg" style="">
 
     <p>
-        i. Si su grupo es el <strong>primer</strong> grupo (el que MÁS recursos dejó en el fondo común): Ganancias Ronda = 1.10 * ganancia parcial
+        i. Si su grupo es el <strong>primer</strong> (mejor) grupo: Ganancias finales = 1.10 * ganancia parcial
     </p>
 
     <p>
-        ii. Si su grupo es el <strong>segundo</strong> grupo: Ganancias Ronda = 1.00 * ganancia parcial
+        ii. Si su grupo es el <strong>segundo</strong> grupo: Ganancias finales = 1.00 * ganancia parcial
     </p>
 
     <p>
-        iii. Si su grupo es el <strong>tercer</strong> grupo (el que MENOS recursos dejó en el fondo común): Ganancias Ronda = 0.90 * ganancia parcial
+        iii. Si su grupo es el <strong>tercer</strong> (peor) grupo: Ganancias finales = 0.90 * ganancia parcial
     </p>
 
     <p>
@@ -106,7 +118,8 @@
     </p>
 
     <p>
-        En caso de presentar un <strong>empate</strong>, el multiplicador para los empatados será el promedio de los multiplicadores.
+        En caso de presentarse un <strong>empate</strong> en el ranking de dos o más grupos, se ponderará el multiplicador
+        correspondiente a dichas posiciones en el ranking:
     </p>
 
     <p>
@@ -131,15 +144,20 @@
 
     <p>
         Suponga que usted decidió extraer 3 unidades del fondo común, y que luego que todos decidieran cuánto extraer
-        quedan 8 unidades en el fondo común. Los demás grupos dejaron 2, 5 y 7 unidades en el fondo común.
+        quedan 8 unidades en el fondo común.
     </p>
 
     <p>
-        Sus ganancias parciales serían: 3 puntos + (1.4 * 8 puntos) / 4  = 3 puntos + (11.2 puntos) / 4  = 3 puntos + 2.8 puntos = 5.8 puntos.
+        Sus ganancias parciales serían: 3 puntos + 0.35 * 8 puntos = 5.8 puntos.
     </p>
 
     <p>
-        Como su grupo es el primero (dejó más unidades en el fondo común), <strong>sus ganancias totales serían 1.10 * 5.8 = 6.4</strong>
+        La suma de las ganancias parciales de los cuatro miembros de su grupo es de 23.2. La suma de las ganancias parciales
+        de los otros dos grupos son 20.4 y 22.8, por lo que el ranking de su grupo es el 1.
+    </p>
+
+    <p>
+        Sus ganancias finales de la ronda serían 1.10 * 5.8 puntos =  6.4 puntos
     </p>
 
     <p>
@@ -153,15 +171,20 @@
 
     <p>
         Suponga que usted decidió extraer 3 unidades del fondo común, y que luego que todos decidieran cuánto extraer
-        quedan 8 unidades en el fondo común. Los demás grupos dejaron 12, 10 y 15 unidades en el fondo común.
+        quedan 8 unidades en el fondo común.
     </p>
 
     <p>
-        Sus ganancias parciales serían: 3 puntos + (1.4 * 8 puntos) / 4  = 3 puntos + (11.2 puntos) / 4  = 3 puntos + 2.8 puntos = 5.8 puntos.
+        Sus ganancias parciales serían: 3 puntos + 0.35 * 8 puntos = 5.8 puntos.
     </p>
 
     <p>
-        Como su grupos es el último (dejó menos unidades en el fondo común), <strong>sus ganancias totales serían 0.90 * 5.8 = 5.2 puntos</strong>
+        La suma de las ganancias parciales de los cuatro miembros de su grupo es de 23.2. La suma de las ganancias parciales
+        de los otros dos grupos son 25.2 y 28.0, por lo que el ranking de su grupo es el 3.
+    </p>
+
+    <p>
+        Sus ganancias finales de la ronda serían 0.90 * 5.8 puntos =  5.2 puntos
     </p>
 
 </div>

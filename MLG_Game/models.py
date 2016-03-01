@@ -87,7 +87,7 @@ class Subsession(BaseSubsession):
     def set_ranking_g(self):
         self.max_fund = max([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
         self.min_fund = min([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
-        vector_group = [p.total_extraction for p in self.get_groups()]
+        vector_group = [(50-p.total_payment) for p in self.get_groups()]
         vector_ranked_g = ranking.rankdata(vector_group)
         coefficients = [1.10 - (a-1)*(0.10) for a in vector_ranked_g]
         self.multi_uno = coefficients[0]
@@ -135,7 +135,9 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
 
-    total_extraction = models.CurrencyField()
+    total_extraction = models.DecimalField(max_digits=2, decimal_places=0)
+
+    total_payment = models.CurrencyField()
 
     group_loss = models.CurrencyField()
 
@@ -148,6 +150,7 @@ class Group(BaseGroup):
             p.payoff = p.extraction + self.group_loss
         for p in self.get_players():
             p.partial_pay = p.payoff
+        self.total_payment = sum([p.partial_pay for p in self.get_players()])
 
     def overall_payoffs(self):
         if self.id_in_subsession == 1:
@@ -165,8 +168,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    extraction = models.CurrencyField(
+    extraction = models.DecimalField(max_digits=2, decimal_places=0,
         min=0, max=Constants.endowment,
+        choices=[0,1,2,3,4,5],
         doc="""The amount extracted by the player""",
     )
 

@@ -83,7 +83,7 @@ class Subsession(BaseSubsession):
     def set_ranking_g(self):
         self.max_fund = max([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
         self.min_fund = min([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
-        vector_group = [p.total_extraction for p in self.get_groups()]
+        vector_group = [(50-p.total_payment) for p in self.get_groups()]
         zeq = sorted (vector_group)
         indez = [zeq.index(v) for v in vector_group]
         vector_indez = [w + 1 for w in indez]
@@ -126,7 +126,9 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
 
-    total_extraction = models.CurrencyField()
+    total_extraction = models.DecimalField(max_digits=2, decimal_places=0)
+
+    total_payment = models.CurrencyField()
 
     group_loss = models.CurrencyField()
 
@@ -137,6 +139,7 @@ class Group(BaseGroup):
         self.group_loss = Constants.beta_factor * (Constants.players_per_group * Constants.endowment - self.total_extraction)
         for p in self.get_players():
             p.payoff = p.extraction + self.group_loss
+        self.total_payment = sum([p.payoff for p in self.get_players()])
 
     def overall_payoffs(self):
         if self.id_in_subsession == 1:
@@ -148,8 +151,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    extraction = models.CurrencyField(
+    extraction = models.DecimalField(max_digits=2, decimal_places=0,
         min=0, max=Constants.endowment,
+        choices=[0,1,2,3,4,5],
         doc="""The amount extracted by the player""",
     )
 
