@@ -54,9 +54,20 @@ class Preferences_II(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
+class Payment_info(Page):
+
+    def vars_for_template(self):
+        self.player.set_payoff()
+        participant = self.player.participant
+        return {
+            'redemption_code': participant.label or participant.code,
+        }
+
+
 page_sequence = [
     Game,
     Demographics,
     Preferences,
-    Preferences_II
+    Preferences_II,
+    Payment_info
 ]

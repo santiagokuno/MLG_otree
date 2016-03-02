@@ -344,7 +344,7 @@ SESSION_CONFIGS = [
         'display_name': "Encuesta",
         'num_demo_participants': 1,
         'app_sequence': [
-             'MLG_survey', 'MLG_payment_info'
+             'MLG_survey'
         ],
     },
        {
@@ -352,7 +352,7 @@ SESSION_CONFIGS = [
         'display_name': "MLG Full",
         'num_demo_participants': 12,
         'app_sequence': [
-             'MLG_Intro', 'CPR_Game', 'MLG_Change', 'MLG_Game', 'MLG_survey', 'MLG_payment_info'
+             'MLG_Intro', 'CPR_Game', 'MLG_Change', 'MLG_Game', 'MLG_survey'
         ],
     },
 ]
