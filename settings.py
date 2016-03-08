@@ -340,19 +340,35 @@ SESSION_CONFIGS = [
         ],
     },
         {
-        'name': 'Cambio_Regla_I',
-        'display_name': "Cambio_regla",
+        'name': 'Cambio_Regla_3_grupos',
+        'display_name': "Cambio_regla (3 grupos)",
         'num_demo_participants': 2,
         'app_sequence': [
             'MLG_Change'
         ],
     },
         {
-        'name': 'Segunda_Etapa',
-        'display_name': "Segunda_etapa",
+        'name': 'Cambio_Regla_5_grupos',
+        'display_name': "Cambio_regla (5 grupos)",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'MLG_Change_5'
+        ],
+    },
+        {
+        'name': 'Segunda_Etapa_3_grupos',
+        'display_name': "Segunda_etapa (3 grupos)",
         'num_demo_participants': 12,
         'app_sequence': [
             'MLG_Game'
+        ],
+    },
+        {
+        'name': 'Segunda_Etapa_5_grupos',
+        'display_name': "Segunda_etapa (5 grupos)",
+        'num_demo_participants': 20,
+        'app_sequence': [
+            'MLG_Game_5'
         ],
     },
        {
@@ -364,11 +380,19 @@ SESSION_CONFIGS = [
         ],
     },
        {
-        'name': 'Completo',
-        'display_name': "MLG Full",
+        'name': 'Completo_3_grupos',
+        'display_name': "MLG Full (3 grupos)",
         'num_demo_participants': 12,
         'app_sequence': [
              'MLG_Intro', 'CPR_Game', 'MLG_Change', 'MLG_Game', 'MLG_survey'
+        ],
+    },
+       {
+        'name': 'Completo_5_grupos',
+        'display_name': "MLG Full (5 grupos)",
+        'num_demo_participants': 12,
+        'app_sequence': [
+             'MLG_Intro_5', 'CPR_Game_5', 'MLG_Change_5', 'MLG_Game_5', 'MLG_survey'
         ],
     },
 ]

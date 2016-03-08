@@ -20,7 +20,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'MLG_Change'
+    name_in_url = 'MLG_Change_5'
     players_per_group = None
     num_rounds = 1
 
