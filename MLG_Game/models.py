@@ -22,7 +22,7 @@ This is a common pool resource game with group competition
 class Constants(BaseConstants):
     name_in_url = 'MLG_Game'
     players_per_group = 4
-    num_rounds = 1
+    num_rounds = 2
 
     endowment = c(5)
     beta_factor = 0.35

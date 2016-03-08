@@ -308,19 +308,35 @@ SESSION_CONFIGS = [
 #        ],
 #    },
         {
-        'name': 'Instrucciones',
-        'display_name': "Instrucciones",
+        'name': 'Instrucciones_3_grupos',
+        'display_name': "Instrucciones (3 grupos)",
         'num_demo_participants': 2,
         'app_sequence': [
             'MLG_Intro'
         ],
     },
+        {
+        'name': 'Instrucciones_5_grupos',
+        'display_name': "Instrucciones (5 grupos)",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'MLG_Intro_5'
+        ],
+    },
        {
-        'name': 'Primera_Etapa',
-        'display_name': "Primera_etapa",
+        'name': 'Primera_Etapa_3_grupos',
+        'display_name': "Primera_etapa (3 grupos)",
         'num_demo_participants': 12,
         'app_sequence': [
             'CPR_Game'
+        ],
+    },
+       {
+        'name': 'Primera_Etapa_5_grupos',
+        'display_name': "Primera_etapa (5 grupos)",
+        'num_demo_participants': 20,
+        'app_sequence': [
+            'CPR_Game_5'
         ],
     },
         {
