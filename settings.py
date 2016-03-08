@@ -310,7 +310,7 @@ SESSION_CONFIGS = [
         {
         'name': 'Instrucciones',
         'display_name': "Instrucciones",
-        'num_demo_participants': 1,
+        'num_demo_participants': 2,
         'app_sequence': [
             'MLG_Intro'
         ],
@@ -326,7 +326,7 @@ SESSION_CONFIGS = [
         {
         'name': 'Cambio_Regla_I',
         'display_name': "Cambio_regla",
-        'num_demo_participants': 1,
+        'num_demo_participants': 2,
         'app_sequence': [
             'MLG_Change'
         ],

@@ -22,9 +22,20 @@ class Intro_III(Page):
 class Intro_IV(Page):
     pass
 
+class Espera(WaitPage):
+
+    wait_for_all_groups = True
+
+    body_text = "Esperando que sus compañeros terminen de revisar las instrucciones."
+
+class Begin(Page):
+    pass
+
 page_sequence = [
     Intro_I,
     Intro_II,
     Intro_III,
-    Intro_IV
+    Intro_IV,
+    Espera,
+    Begin
 ]

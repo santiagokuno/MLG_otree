@@ -56,17 +56,17 @@ class Player(BasePlayer):
                                 verbose_name='¿Está usted graduado de pregrado?',
                                 widget=widgets.RadioSelect())
     q_career_1 = models.CharField(max_length=20,
-                                  verbose_name='¿De cuál carrera se graduó o cuál está cursando? (escriba ninguna si no aplica)')
+                                  verbose_name='¿De cuál carrera (pregrado) se graduó o cuál está cursando? (escriba "ninguna" si no aplica)')
     q_career_2 = models.CharField(max_length=20,
-                                  verbose_name='¿De cuál otra carrera se graduó o está cursando? (escriba ninguna si no aplica)')
+                                  verbose_name='¿De cuál otra carrera (pregrado) se graduó o está cursando? (escriba "ninguna" si no aplica)')
     q_postgraduate = models.CharField(initial=None,
                                 choices=['SI', 'NO'],
                                 verbose_name='¿Está usted estudiando o se graduó de posgrado?',
                                 widget=widgets.RadioSelect())
     q_master_1 = models.CharField(max_length=20,
-                                  verbose_name='¿De cuál carrera se graduó o cuál está cursando? (escriba ninguna si no aplica)')
+                                  verbose_name='¿De cuál carrera (posgrado) se graduó o cuál está cursando? (escriba "ninguna" si no aplica)')
     q_master_2 = models.CharField(max_length=20,
-                                  verbose_name='¿De cuál otra carrera se graduó o está cursando? (escriba ninguna si no aplica)')
+                                  verbose_name='¿De cuál otra carrera (posgrado) se graduó o está cursando? (escriba "ninguna" si no aplica)')
 
     p_risk = models.PositiveIntegerField(verbose_name='Por favor señale una opción',
                                         choices=range(1, 11),
@@ -127,14 +127,14 @@ class Player(BasePlayer):
                                              widget=widgets.RadioSelect())
 
 
-    g_pref_stage = models.PositiveIntegerField(verbose_name='Cuál etapa del juego le gustó más',
+    g_pref_stage = models.PositiveIntegerField(verbose_name='¿Cuál etapa del juego le gustó más?',
                                              choices=[
                                                  (1, 'La primera'),
                                                  (2, 'la segunda')
                                              ],
                                              initial=None,
                                              widget=widgets.RadioSelect())
-    g_pref_rk_1 = models.PositiveIntegerField(verbose_name='En la PRIMERA etapa del juego, que información era más importante para decidir que hacer',
+    g_pref_rk_1 = models.PositiveIntegerField(verbose_name='En la PRIMERA etapa del juego, ¿qué información era más importante para decidir que hacer?',
                                              choices=[
                                                  (1, 'Mi posición individual con respecto a los demás jugadores'),
                                                  (2, 'La posición de mi grupo con respecto a los demás grupos'),
@@ -143,7 +143,7 @@ class Player(BasePlayer):
                                              initial=None,
                                              widget=widgets.RadioSelect())
 
-    g_pref_rk_2 = models.PositiveIntegerField(verbose_name='En la SEGUNDA etapa del juego, que información era más importante para decidir que hacer',
+    g_pref_rk_2 = models.PositiveIntegerField(verbose_name='En la SEGUNDA etapa del juego, ¿qué información era más importante para decidir que hacer?',
                                              choices=[
                                                  (1, 'Mi posición individual con respecto a los demás jugadores'),
                                                  (2, 'La posición de mi grupo con respecto a los demás grupos'),

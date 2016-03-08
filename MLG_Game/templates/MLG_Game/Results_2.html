@@ -16,11 +16,16 @@
 
     <tr><td>Sus ganancias parciales fueron:</td><td>{{ Ganancias_parciales }}. </td></tr>
 
+    <tr><td>Su ranking entre todos los competidores fue:</td><td>{{ player.ranking }} de 12 jugadores.</td></tr>
+
+    <tr><td>El ranking de su grupo fue:</td><td>{{ group.g_ranking }} de 3 grupos.</td></tr>
+
     <tr><td><strong>SU PAGO FINAL DE LA RONDA ES DE:</strong></td><td><strong>{{ Pago_final }}. </strong></td></tr>
 </table>
 
 </div>
 
+    {% comment %}
 <div class="box effect7">
 
 <table class="table-condensed" style="width:500px; margin-top:20px;">
@@ -35,7 +40,7 @@
 
 </div>
 
-    {% comment %}
+
     <tr><td>Su jugador es:</td><td>{{ participante }}</td></tr>
 
     <tr><td colspan="2"><hr/></td></tr>

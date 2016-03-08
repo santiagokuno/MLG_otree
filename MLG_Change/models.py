@@ -24,8 +24,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-    question_correct = '7.2'
-
+    question_correct_1 = '6.5'
+    question_correct_2 = '7.2'
 
 class Subsession(BaseSubsession):
     pass
@@ -37,7 +37,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    question = models.CharField(
+    question_1 = models.CharField(
         choices=[
             ('1.0', '1.0'),
             ('4.0', '4.0'),
@@ -47,5 +47,18 @@ class Player(BasePlayer):
         ]
     )
 
-    def question_correct(self):
-        return self.question == Constants.question_correct
+    question_2 = models.CharField(
+        choices=[
+            ('1.0', '1.0'),
+            ('4.0', '4.0'),
+            ('6.5', '6.5'),
+            ('7.2', '7.2'),
+            ('12.0', '12.0'),
+        ]
+    )
+
+    def question_correct_1(self):
+        return self.question_1 == Constants.question_correct_1
+
+    def question_correct_2(self):
+        return self.question_2 == Constants.question_correct_2

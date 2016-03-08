@@ -14,14 +14,26 @@ class Cambio(Page):
 class Pregunta(Page):
 
     form_model = models.Player
-    form_fields = ['question']
+    form_fields = ['question_1',
+                   'question_2',
+                   ]
 
 class Respuesta(Page):
     pass
 
+class Espera(WaitPage):
+
+    wait_for_all_groups = True
+
+    body_text = "Esperando que sus compañeros terminen de revisar las instrucciones."
+
+class Begin(Page):
+    pass
 
 page_sequence = [
     Cambio,
     Pregunta,
-    Respuesta
+    Respuesta,
+    Espera,
+    Begin
 ]

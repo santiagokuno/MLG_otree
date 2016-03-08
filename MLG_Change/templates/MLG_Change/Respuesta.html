@@ -8,11 +8,17 @@
 {% block content %}
 
     <p>
-        Su respuesta <span  class="text-info">{{ player.question }}</span> fue {% if player.question_correct %}<span class="text-success">correcta</span>
+        Su respuesta <span  class="text-info">{{ player.question_1 }}</span> de las ganancias PARCIALES de la ronda fue {% if player.question_correct_1 %}<span class="text-success">correcta</span>
         {% else %}<span class="text-danger">incorrecta.</span>{% endif %}
     </p>
 
     <p>
+        Su respuesta <span  class="text-info">{{ player.question_2 }}</span> de las ganancias FINALES de la ronda fue {% if player.question_correct_2 %}<span class="text-success">correcta</span>
+        {% else %}<span class="text-danger">incorrecta.</span>{% endif %}
+    </p>
+
+    <p>
+        <b>El problema:</b><br>
         Suponga que usted extrajo 3 unidades, y que luego de las extracción de los otros tres jugadores quedaron
         10 unidades en el fondo común.
     </p>
@@ -23,29 +29,31 @@
     </p>
 
     <p>
-        ¿Cuales son sus ganancias totales de la ronda?
+        ¿Cuales son sus ganancias PARCIALES Y FINALES de la ronda?
     </p>
 
     <p>
-        <strong>Solución:</strong> Las ganancias parciales son 6.5 y <strong>las ganancias finales 7.2</strong>
+        <strong>Solución:</strong><br>
+        Las ganancias PARCIALES son 6.5. <br>
+        Las ganancias FINALES 7.2.
     </p>
 
     <p>
-        <strong>Explicación:</strong> Sus ganancias parciales son 3 + 0.35 * 10 = 6.5 puntos. Como su grupo tiene las mayores
-        ganancias de todos los grupos, el ranking es 1 y el multiplicador 1.10. Por lo tanto sus Ganancias totales = 1.10 * 6.5 = 7.2
+        <strong>Explicación:</strong> Sus ganancias parciales son 3 + 0.35 x 10 = 6.5 puntos. Como su grupo tiene las mayores
+        ganancias de todos los grupos, el ranking es 1 y el multiplicador 1.10. Por lo tanto sus Ganancias finales = 1.10 x 6.5 = 7.2
     </p>
 
 
 <div class="box effect7">
      <p>
-        Cada grupo tiene a su dispoción 20 unidades de un recurso compartido en cada ronda.
+        Cada grupo tiene a su disposición 20 unidades de un recurso compartido en cada ronda.
         Cada unidad que usted decida extraer le generará un beneficio de un (1) punto. Este beneficio es sólo para usted.
         Cada unidad que no sea extraía le generará un beneficio de 0.35 puntos para cada miembro de su grupo.
-        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco unidades del recurso por ronda.
+        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco (5) unidades del recurso por ronda.
     </p>
 
     <p>
-        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 * [Unidades remanentes en el recurso compartido].
+        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 x [Unidades remanentes en el recurso compartido].
         Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal.
         Para calcular sus ganancias finales (de la ronda), sus ganancias parciales serán ponderadas con un MULTIPLICADOR
         que depende del ranking de su grupo.

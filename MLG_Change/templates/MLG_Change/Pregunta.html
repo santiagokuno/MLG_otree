@@ -17,18 +17,20 @@
         La suma de las ganancias parciales de los otros dos grupos es de 23.2 y 22.0
     </p>
 
-    {% formfield player.question with label="¿Cuáles son sus ganancias finales de la ronda?" %}
+    {% formfield player.question_1 with label="¿Cuáles son sus ganancias PARCIALES de la ronda?" %}
+
+    {% formfield player.question_2 with label="¿Cuáles son sus ganancias FINALES de la ronda?" %}
 
 <div class="box effect7">
      <p>
-        Cada grupo tiene a su dispoción 20 unidades de un recurso compartido en cada ronda.
+        Cada grupo tiene a su disposición 20 unidades de un recurso compartido en cada ronda.
         Cada unidad que usted decida extraer le generará un beneficio de un (1) punto. Este beneficio es sólo para usted.
         Cada unidad que no sea extraía le generará un beneficio de 0.35 puntos para cada miembro de su grupo.
-        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco unidades del recurso por ronda.
+        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco (5) unidades del recurso por ronda.
     </p>
 
     <p>
-        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 * [Unidades remanentes en el recurso compartido].
+        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 x [Unidades remanentes en el recurso compartido].
         Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal.
         Para calcular sus ganancias finales (de la ronda), sus ganancias parciales serán ponderadas con un MULTIPLICADOR
         que depende del ranking de su grupo.
