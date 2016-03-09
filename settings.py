@@ -316,6 +316,14 @@ SESSION_CONFIGS = [
         ],
     },
         {
+        'name': 'Instrucciones_3_grupos_B',
+        'display_name': "Instrucciones (3 grupos) B.",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'MLG_Intro_B'
+        ],
+    },
+        {
         'name': 'Instrucciones_5_grupos',
         'display_name': "Instrucciones (5 grupos)",
         'num_demo_participants': 2,
@@ -390,7 +398,7 @@ SESSION_CONFIGS = [
        {
         'name': 'Completo_5_grupos',
         'display_name': "MLG Full (5 grupos)",
-        'num_demo_participants': 12,
+        'num_demo_participants': 20,
         'app_sequence': [
              'MLG_Intro_5', 'CPR_Game_5', 'MLG_Change_5', 'MLG_Game_5', 'MLG_survey'
         ],

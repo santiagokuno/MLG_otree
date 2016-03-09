@@ -45,22 +45,40 @@
 
 
 <div class="box effect7">
-     <p>
-        Cada grupo tiene a su disposición 20 unidades de un recurso compartido en cada ronda.
-        Cada unidad que usted decida extraer le generará un beneficio de un (1) punto. Este beneficio es sólo para usted.
-        Cada unidad que no sea extraía le generará un beneficio de 0.35 puntos para cada miembro de su grupo.
-        Cada miembro del grupo tendrá derecho a extraer entre cero (0) y cinco (5) unidades del recurso por ronda.
+
+    <p>
+        INSTRUCCIONES
     </p>
 
     <p>
-        Sus ganancias parciales serán: [Unidades extraídas] + 0.35 x [Unidades remanentes en el recurso compartido].
-        Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal.
-        Para calcular sus ganancias finales (de la ronda), sus ganancias parciales serán ponderadas con un MULTIPLICADOR
-        que depende del ranking de su grupo.
+        {% if subsession.round_number == 1 %}<b>Sus tres compañeros de grupo en este segundo bloque son diferentes
+        de los que tenía durante el primer bloque</b>. Usted está en un grupo con otros tres (3) participantes.
+        El grupo será el mismo durante todo el bloque.
+        {% else %}Usted está en un grupo con otros tres (3) participantes. El grupo será el mismo durante todo el bloque. {% endif %}
+        El grupo tiene a su disposición 20 unidades de un recurso compartido en cada ronda. Usted tiene
+        derecho a extraer entre cero (0) y cinco (5) unidades del recurso compartido.
+    </p>
+
+    <p>
+        Cada unidad que usted decida extraer generará un beneficio de 1 punto. Este beneficio es solo para usted.
+        Cada unidad que no sea extraída generará un beneficio de 0.35 puntos para cada miembro del grupo.
+    </p>
+
+    <p>
+        Su PAGO PARCIAL = [Unidades extraidas] + 0.35 x [Unidades remanentes en el recurso compartido].
+    </p>
+
+    <p>
+        Las ganancias parciales de los miembros de cada grupo serán sumadas para determinar el ranking grupal. Y su
+        pago final en la ronda.
+    </p>
+
+    <p>
+        Su PAGO FINAL = Multiplicador x Pago Parcial.
     </p>
 
     <table class="table-condensed" style="width:500px; margin-top:20px;">
-    <tr><td><strong>Ranking</strong></td><td><strong>Multiplicador</strong></td></tr>
+    <tr><td><strong>Ranking Grupos</strong></td><td><strong>Multiplicador</strong></td></tr>
     <tr><td>1 (mayores ganancias):</td><td>1.10 (10% más de ganancia)</td></tr>
     <tr><td>2:</td><td>1.00 (ganancias no se afectan)</td></tr>
     <tr><td>3 (menores ganancias):</td><td>0.90 (10% menos de ganancias)</td></tr>
