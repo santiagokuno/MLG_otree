@@ -22,7 +22,7 @@ This and standard CPR game, but telling player groups their rankings
 class Constants(BaseConstants):
     name_in_url = 'CPR_Game_5'
     players_per_group = 4
-    num_rounds = 1
+    num_rounds = 10
 
     endowment = c(5)
     beta_factor = 0.35

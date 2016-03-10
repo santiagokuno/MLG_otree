@@ -1,0 +1,60 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    RESULTADOS RONDA {{ subsession.round_number }} DE 10 (BLOQUE 1)
+{% endblock %}
+
+{% block content %}
+
+<div class="box effect7">
+    <p></p>
+<table class="table-condensed" style="width:500px; margin-top:20px;">
+    <tr><td>Usted extrajo:</td><td>{{ player.extraction }} Unidades. </td></tr>
+    <tr><td>El remanente del recurso compartido en su grupo fue:</td><td>{{ Fondo_Comun }} Unidades.</td></tr>
+    <tr><td>Las ganancias totales de su grupo fueron:</td><td>{{ group.total_payment }}.</td></tr>
+
+    <tr><td colspan="2"><hr/></td></tr>
+    <tr><td>Su ranking entre todos los competidores fue:</td><td>{{ player.ranking }} de 12 jugadores.</td></tr>
+    <tr><td>El ranking de su grupo fue:</td><td>{{ group.g_ranking }} de 3 grupos.</td></tr>
+    <tr><td colspan="2"><hr/></td></tr>
+
+    <tr><td><strong>SU PAGO ES DE:</strong></td><td><strong>{{ player.payoff }}</strong></td></tr>
+</table>
+
+</div>
+
+    {% comment %}
+    <tr><td>Su jugador es:</td><td>{{ participante }}</td></tr>
+
+    <tr><td colspan="2"><hr/></td></tr>
+
+    <tr><td>Puesto Jugador 1ro:</td><td>{{ player_1 }}</td></tr>
+    <tr><td>Puesto Jugador 2do:</td><td>{{ player_2 }}</td></tr>
+    <tr><td>Puesto Jugador 3ro:</td><td>{{ player_3 }}</td></tr>
+    <tr><td>Puesto Jugador 4to:</td><td>{{ player_4 }}</td></tr>
+    <tr><td>Puesto Jugador 5to:</td><td>{{ player_5 }}</td></tr>
+    <tr><td>Puesto Jugador 6to:</td><td>{{ player_6 }}</td></tr>
+
+
+    <tr><td>Lugar Jugador 1:</td><td>{{ subsession.posit_1 }}</td></tr>
+    <tr><td>Lugar Jugador 2:</td><td>{{ subsession.posit_2 }}</td></tr>
+    <tr><td>Lugar Jugador 3:</td><td>{{ subsession.posit_3 }}</td></tr>
+    <tr><td>Lugar Jugador 4:</td><td>{{ subsession.posit_4 }}</td></tr>
+    <tr><td>Lugar Jugador 5:</td><td>{{ subsession.posit_5 }}</td></tr>
+    <tr><td>Lugar Jugador 6:</td><td>{{ subsession.posit_6 }}</td></tr>
+
+    <tr><td colspan="2"><hr/></td></tr>
+
+    <tr><td>Identificacion de persona:</td><td>{{ player.id_in_group }}</td></tr>
+    <tr><td>Identificacion de grupo:</td><td>{{ group.id_in_subsession }}</td></tr>
+
+    {% endcomment %}
+
+</table>
+
+
+    {% next_button %}
+{% endblock %}
+
+

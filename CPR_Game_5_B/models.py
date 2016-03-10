@@ -20,7 +20,7 @@ This and standard CPR game, but telling player groups their rankings
 
 
 class Constants(BaseConstants):
-    name_in_url = 'CPR_Game'
+    name_in_url = 'CPR_Game_5_B'
     players_per_group = 4
     num_rounds = 10
 
@@ -32,6 +32,8 @@ class Subsession(BaseSubsession):
     rank_uno = models.DecimalField(max_digits=2, decimal_places=0)
     rank_dos = models.DecimalField(max_digits=2, decimal_places=0)
     rank_tres = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_cuatro = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_cinco = models.DecimalField(max_digits=2, decimal_places=0)
 
     rank_p_1 = models.DecimalField(max_digits=2, decimal_places=0)
     rank_p_2 = models.DecimalField(max_digits=2, decimal_places=0)
@@ -45,6 +47,14 @@ class Subsession(BaseSubsession):
     rank_p_10 = models.DecimalField(max_digits=2, decimal_places=0)
     rank_p_11 = models.DecimalField(max_digits=2, decimal_places=0)
     rank_p_12 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_13 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_14 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_15 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_16 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_17 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_18 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_19 = models.DecimalField(max_digits=2, decimal_places=0)
+    rank_p_20 = models.DecimalField(max_digits=2, decimal_places=0)
 
     posit_1 = models.DecimalField(max_digits=4, decimal_places=1)
     posit_2 = models.DecimalField(max_digits=4, decimal_places=1)
@@ -58,6 +68,14 @@ class Subsession(BaseSubsession):
     posit_10 = models.DecimalField(max_digits=4, decimal_places=1)
     posit_11 = models.DecimalField(max_digits=4, decimal_places=1)
     posit_12 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_13 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_14 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_15 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_16 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_17 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_18 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_19 = models.DecimalField(max_digits=4, decimal_places=1)
+    posit_20 = models.DecimalField(max_digits=4, decimal_places=1)
 
     max_pay = models.DecimalField(max_digits=3, decimal_places=1)
     min_pay = models.DecimalField(max_digits=3, decimal_places=1)
@@ -90,6 +108,9 @@ class Subsession(BaseSubsession):
         self.rank_uno = vector_indez[0]
         self.rank_dos = vector_indez[1]
         self.rank_tres = vector_indez[2]
+        self.rank_cuatro = vector_indez[3]
+        self.rank_cinco = vector_indez[4]
+
 
     def set_ranking_p(self):
         self.max_pay = max([p.payoff for p in self.get_players()])
@@ -111,6 +132,14 @@ class Subsession(BaseSubsession):
         self.rank_p_10 = vector_ranked_p[9]
         self.rank_p_11 = vector_ranked_p[10]
         self.rank_p_12 = vector_ranked_p[11]
+        self.rank_p_13 = vector_ranked_p[12]
+        self.rank_p_14 = vector_ranked_p[13]
+        self.rank_p_15 = vector_ranked_p[14]
+        self.rank_p_16 = vector_ranked_p[15]
+        self.rank_p_17 = vector_ranked_p[16]
+        self.rank_p_18 = vector_ranked_p[17]
+        self.rank_p_19 = vector_ranked_p[18]
+        self.rank_p_20 = vector_ranked_p[19]
         self.posit_1 = vector_positions[0]
         self.posit_2 = vector_positions[1]
         self.posit_3 = vector_positions[2]
@@ -123,6 +152,15 @@ class Subsession(BaseSubsession):
         self.posit_10 = vector_positions[9]
         self.posit_11 = vector_positions[10]
         self.posit_12 = vector_positions[11]
+        self.posit_13 = vector_positions[12]
+        self.posit_14 = vector_positions[13]
+        self.posit_15 = vector_positions[14]
+        self.posit_16 = vector_positions[15]
+        self.posit_17 = vector_positions[16]
+        self.posit_18 = vector_positions[17]
+        self.posit_19 = vector_positions[18]
+        self.posit_20 = vector_positions[19]
+
 
 class Group(BaseGroup):
 
@@ -148,6 +186,11 @@ class Group(BaseGroup):
             self.g_ranking = self.subsession.rank_dos
         elif self.id_in_subsession == 3:
             self.g_ranking = self.subsession.rank_tres
+        elif self.id_in_subsession == 4:
+            self.g_ranking = self.subsession.rank_cuatro
+        elif self.id_in_subsession == 5:
+            self.g_ranking = self.subsession.rank_cinco
+
 
 class Player(BasePlayer):
 
@@ -187,5 +230,22 @@ class Player(BasePlayer):
             self.ranking = self.subsession.rank_p_11
         elif self.auxiliar == self.subsession.posit_12:
             self.ranking = self.subsession.rank_p_12
+        elif self.auxiliar == self.subsession.posit_13:
+            self.ranking = self.subsession.rank_p_13
+        elif self.auxiliar == self.subsession.posit_14:
+            self.ranking = self.subsession.rank_p_14
+        elif self.auxiliar == self.subsession.posit_15:
+            self.ranking = self.subsession.rank_p_15
+        elif self.auxiliar == self.subsession.posit_16:
+            self.ranking = self.subsession.rank_p_16
+        elif self.auxiliar == self.subsession.posit_17:
+            self.ranking = self.subsession.rank_p_17
+        elif self.auxiliar == self.subsession.posit_18:
+            self.ranking = self.subsession.rank_p_18
+        elif self.auxiliar == self.subsession.posit_19:
+            self.ranking = self.subsession.rank_p_19
+        elif self.auxiliar == self.subsession.posit_20:
+            self.ranking = self.subsession.rank_p_20
+
 
 

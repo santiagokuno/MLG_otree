@@ -20,7 +20,7 @@ This and standard CPR game, but telling player groups their rankings
 
 
 class Constants(BaseConstants):
-    name_in_url = 'CPR_Game'
+    name_in_url = 'CPR_Game_B'
     players_per_group = 4
     num_rounds = 10
 

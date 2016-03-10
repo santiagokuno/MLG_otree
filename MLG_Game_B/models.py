@@ -3,7 +3,7 @@
 from __future__ import division
 
 import random
-import ranking
+import ranking # introducido en 01/02/2016
 import otree.models
 from otree.db import models
 from otree import widgets
@@ -15,12 +15,12 @@ from otree.models import BaseSubsession, BaseGroup, BasePlayer
 author = 'Santiago GC'
 
 doc = """
-This and standard CPR game, but telling player groups their rankings
+This is a common pool resource game with group competition
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'CPR_Game'
+    name_in_url = 'MLG_Game_B'
     players_per_group = 4
     num_rounds = 10
 
@@ -28,6 +28,10 @@ class Constants(BaseConstants):
     beta_factor = 0.35
 
 class Subsession(BaseSubsession):
+
+    multi_uno = models.DecimalField(max_digits=3, decimal_places=2)
+    multi_dos = models.DecimalField(max_digits=3, decimal_places=2)
+    multi_tres = models.DecimalField(max_digits=3, decimal_places=2)
 
     rank_uno = models.DecimalField(max_digits=2, decimal_places=0)
     rank_dos = models.DecimalField(max_digits=2, decimal_places=0)
@@ -84,6 +88,11 @@ class Subsession(BaseSubsession):
         self.max_fund = max([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
         self.min_fund = min([(Constants.endowment*Constants.players_per_group-p.total_extraction) for p in self.get_groups()])
         vector_group = [(50-p.total_payment) for p in self.get_groups()]
+        vector_ranked_g = ranking.rankdata(vector_group)
+        coefficients = [1.10 - (a-1)*(0.10) for a in vector_ranked_g]
+        self.multi_uno = coefficients[0]
+        self.multi_dos = coefficients[1]
+        self.multi_tres = coefficients[2]
         zeq = sorted (vector_group)
         indez = [zeq.index(v) for v in vector_group]
         vector_indez = [w + 1 for w in indez]
@@ -139,14 +148,22 @@ class Group(BaseGroup):
         self.group_loss = Constants.beta_factor * (Constants.players_per_group * Constants.endowment - self.total_extraction)
         for p in self.get_players():
             p.payoff = p.extraction + self.group_loss
-        self.total_payment = sum([p.payoff for p in self.get_players()])
+        for p in self.get_players():
+            p.partial_pay = p.payoff
+        self.total_payment = sum([p.partial_pay for p in self.get_players()])
 
     def overall_payoffs(self):
         if self.id_in_subsession == 1:
+            for p in self.get_players():
+                p.payoff = p.payoff*self.subsession.multi_uno
             self.g_ranking = self.subsession.rank_uno
         elif self.id_in_subsession == 2:
+            for p in self.get_players():
+                p.payoff = p.payoff*self.subsession.multi_dos
             self.g_ranking = self.subsession.rank_dos
         elif self.id_in_subsession == 3:
+            for p in self.get_players():
+                p.payoff = p.payoff*self.subsession.multi_tres
             self.g_ranking = self.subsession.rank_tres
 
 class Player(BasePlayer):
@@ -156,6 +173,8 @@ class Player(BasePlayer):
         choices=[0,1,2,3,4,5],
         doc="""The amount extracted by the player""",
     )
+
+    partial_pay = models.CurrencyField()
 
     ranking = models.DecimalField(max_digits=2, decimal_places=0)
 
@@ -187,5 +206,7 @@ class Player(BasePlayer):
             self.ranking = self.subsession.rank_p_11
         elif self.auxiliar == self.subsession.posit_12:
             self.ranking = self.subsession.rank_p_12
+
+
 
 

@@ -331,6 +331,14 @@ SESSION_CONFIGS = [
             'MLG_Intro_5'
         ],
     },
+        {
+        'name': 'Instrucciones_5_grupos_B',
+        'display_name': "Instrucciones (5 grupos) B",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'MLG_Intro_5_B'
+        ],
+    },
        {
         'name': 'Primera_Etapa_3_grupos',
         'display_name': "Primera_etapa (3 grupos)",
@@ -353,6 +361,14 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': [
             'MLG_Change'
+        ],
+    },
+        {
+        'name': 'Cambio_Regla_3_5_grupos_B',
+        'display_name': "Cambio_regla (3 y 5 grupos) B",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'MLG_Change_B'
         ],
     },
         {
@@ -401,6 +417,22 @@ SESSION_CONFIGS = [
         'num_demo_participants': 20,
         'app_sequence': [
              'MLG_Intro_5', 'CPR_Game_5', 'MLG_Change_5', 'MLG_Game_5', 'MLG_survey'
+        ],
+    },
+       {
+        'name': 'Completo_3_grupos_B',
+        'display_name': "MLG Full (3 grupos) Inverse Order",
+        'num_demo_participants': 12,
+        'app_sequence': [
+             'MLG_Intro_B', 'MLG_Game_B', 'MLG_Change_B', 'CPR_Game_B', 'MLG_survey'
+        ],
+    },
+       {
+        'name': 'Completo_5_grupos_B',
+        'display_name': "MLG Full (5 grupos) Inverse Order",
+        'num_demo_participants': 20,
+        'app_sequence': [
+             'MLG_Intro_5_B', 'MLG_Game_5_B', 'MLG_Change_B', 'CPR_Game_5_B',  'MLG_survey'
         ],
     },
 ]
